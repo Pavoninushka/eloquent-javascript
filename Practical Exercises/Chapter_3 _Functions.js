@@ -1,32 +1,31 @@
-function min (num1, num2) {
-    if (num1 > num2) return num2;
-   else return num1;
-}
-console.log(min(1,2));
-
-function isEven (integer) {
-if (integer === 0) return true;
-else if (integer === 1) return false;
-else if (integer < 0) return isEven(-integer);
-else return isEven(integer - 2);
+//1
+function min (a, b) {
+    return a < b ? a : b;
 }
 
-function countBs (string) {
-    let result = 0;
-    for (let i = 0; i <= string.length; i++ ) {
-        if (string[i] === "B"){
-            result = result + 1;
+console.log(min(3,2));
+
+//2
+function isEven (number) {
+if (Math.abs(number) === 0) return true;
+else if (Math.abs(number) === 1) return false;
+else return isEven(Math.abs(number) - 2);
+}
+
+console.log(isEven(-7))
+
+//3
+const countChar = function (string, letter) {
+    let count = 0;
+    for (let i = 0; i <= string.length; i ++) {
+        if (string[i] === letter){
+            count++;
         }
-    } return result;
+    } return count;
 }
-countBs("BBbBb");
 
-function countChar (string, ch) {
-    let result = 0;
-    for (let i = 0; i <= string.length; i++ ) {
-        if (string[i] === ch){
-            result += 1;
-        }
-    } return result;
+const countBs = function (string) {
+    return countChar(string, "A");
 }
-countChar ("AAAaa", "A");
+
+console.log(countBs("AAaaA"));

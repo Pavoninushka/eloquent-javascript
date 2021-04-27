@@ -54,18 +54,19 @@ function countBy(items, groupName) {
     return counts;
 }
 
-function dominant (str) {
-let counts = countBy(str, letter => {
+function dominantDirection(text) {
+    let counted = countBy(text, char => {
+        let script = characterScript(char.codePointAt(0));
+        return script ? script.direction : "none";
+    }).filter(({name}) => name !== "none");
 
-})
+    if (counted.length === 0) return "ltr";
 
+    return counted.reduce((a, b) => a.count > b.count ? a : b).name;
 }
-
-
 
 //console.log(dominantDirection("Hey, مساء الخير"));
 // → ltr
-
 
 function uniteUnique(...arrs) {
     let newArray = [];
@@ -79,4 +80,4 @@ function uniteUnique(...arrs) {
     return newArray;
 }
 
-uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
+console.log(uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]));

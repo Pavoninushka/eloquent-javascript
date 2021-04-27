@@ -17,4 +17,4 @@ class Temperature {
 let temp = new Temperature(22);
 console.log(temp.fahrenheit);
 temp.fahrenheit = 86;
-console.log(temp.celsius); */
+console.log(temp.celsius);

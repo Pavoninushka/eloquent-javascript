@@ -8,7 +8,7 @@ verify(/pr?op/,
     ["pop culture", "mad props"],
     ["plop", "prrrop"]);
 
-verify(/ferr(et|y|ari)/,
+verify(/ferr[eya]\w?/,
     ["ferret", "ferry", "ferrari"],
     ["ferrum", "transfer A"]);
 
@@ -20,7 +20,7 @@ verify(/\s[,.:;]/,
     ["bad punctuation ."],
     ["escape the period"]);
 
-verify(/\w{7,}/,
+verify(/\w{6,}/,
     ["Siebentausenddreihundertzweiundzwanzig"],
     ["no", "three small words"]);
 
@@ -31,7 +31,7 @@ verify(/\b[^\We]+\b/i,
 
 function verify(regexp, yes, no) {
     // Ignore unfinished exercises
-    if (regexp.source == "...") return;
+    if (regexp.source === "...") return;
     for (let str of yes) if (!regexp.test(str)) {
         console.log(`Failure to match '${str}'`);
     }
@@ -62,6 +62,4 @@ for (let str of ["1a", "+-1", "1.2.3", "1+1", "1e4.5",
         console.log(`Incorrectly accepted '${str}'`);
     }
 }
-
-
 

@@ -1,4 +1,4 @@
-var JOURNAL = [
+let JOURNAL = [
     {"events":["carrot","exercise","weekend"],"squirrel":false},
     {"events":["bread","pudding","brushed teeth","weekend","touched tree"],"squirrel":false},
     {"events":["carrot","nachos","brushed teeth","cycling","weekend"],"squirrel":false},
@@ -91,7 +91,7 @@ var JOURNAL = [
     {"events":["cauliflower","peanuts","brushed teeth","weekend"],"squirrel":false}
 ];
 
-var journal = [];
+let journal = [];
 
 function addEntry(events, squirrel) {
     journal.push({events, squirrel});

@@ -35,36 +35,39 @@ class Group {
     has (value) {
         return this.members.includes(value);
     }
+    static fromMethod (iterableObject) {
+        let newGroup = new Group;
+        for (let item of iterableObject) {
+            newGroup.add(item)
+        }
+        return newGroup;
+    }
+    [Symbol.iterator](){
+        return new GroupIterator(this);
+    }
 }
 
+//Fourth
 
-let group = Group.from([10, 20]);
-
-// Third
-
-class Group {
-    constructor() {
-        this.members = [];
+class GroupIterator{
+    constructor(group) {
+        this.group = group;
+        this.position = 0;
     }
-
-    add(value) {
-        if (!this.has(value)) {
-            this.members.push(value);
+    next() {
+        if (this.position >= this.group.members.length){
+            return {done : true};
+        } else {
+            let result = { value: this.group.members[this.position],
+            done: false};
+            this.position++;
+            return result;
         }
     }
+}
 
-    delete(value) {
-        this.members = this.members.filter(v => v !== value);
-    }
+// Fifth
 
-    has(value) {
-        return this.members.includes(value);
-    }
-};
-
-
-
-// Forth
 let map = {one: true, two: true, hasOwnProperty: true};
 
 console.log(Object.prototype.hasOwnProperty.call(map, "one"));

@@ -1,22 +1,25 @@
+// 1
 let triangle = "#";
 while (triangle.length < 8){
     console.log(triangle);
     triangle += "#";
-};
+}
 
+//2
 for (let number = 0; number<=100; number++ ) {
-    if (number % 3 == 0 && number % 5 == 0){
+    if (number % 3 === 0 && number % 5 === 0){
         console.log("FizzBuzz");
-    }else if (number % 3 == 0) {
+    }else if (number % 3 === 0) {
         console.log("Fizz");
-    }else if (number % 5 == 0) {
+    }else if (number % 5 === 0) {
         console.log("Buzz");
 
     } else {
         console.log(number);
     }
-};
+}
 
+//3
 let firstLine = " # # # #";
 let secondLine = "# # # #";
 let chessBoard = `${firstLine}\n${secondLine}\n${firstLine}\n${secondLine}
@@ -34,6 +37,5 @@ for (let y = 0; y < size; y++) {
         }
     }
     board += "\n";
-};
-
+}
 
